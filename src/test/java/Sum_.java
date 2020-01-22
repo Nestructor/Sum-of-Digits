@@ -20,4 +20,9 @@ public class Sum_ {
         assertThat(sum.of(5)).isEqualTo(5);
     }
 
+    @Test
+    public void given_16_should_return_7() {
+        assertThat(sum.of(16)).isEqualTo(7);
+    }
+
 }
