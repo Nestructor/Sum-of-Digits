@@ -1,33 +1,36 @@
-import org.junit.*;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(org.junit.runners.Parameterized.class)
 public class Sum_ {
 
-    private Sum sum;
+    private Sum sum = new Sum();
+    private final int number;
+    private final int value;
 
-    @Before
-    public void setUp() {
-        sum = new Sum();
+    public Sum_(int number, int value) {
+        this.number = number;
+        this.value = value;
     }
 
     @Test
-    public void given_negative_number_should_return_0() {
-        assertThat(sum.of(-1)).isEqualTo(0);
+    public void execute() {
+        assertThat(sum.of(number)).isEqualTo(value);
     }
 
-    @Test
-    public void given_5_should_return_5() {
-        assertThat(sum.of(5)).isEqualTo(5);
-    }
-
-    @Test
-    public void given_16_should_return_7() {
-        assertThat(sum.of(16)).isEqualTo(7);
-    }
-
-    @Test
-    public void given_942_should_return_() {
-        assertThat(sum.of(942)).isEqualTo(6);
+    @Parameterized.Parameters
+    public static Object[][] cases() {
+        return new Object[][]{
+                {-1, 0},
+                {5, 5},
+                {16, 7},
+                {942, 6},
+                {132189, 6},
+                {493193, 2},
+        };
     }
 
 }

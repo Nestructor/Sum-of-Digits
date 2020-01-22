@@ -1,22 +1,25 @@
-import java.util.Arrays;
 
 public class Sum {
 
     public int of(int number) {
-        if(number > -1) {
-            char[] charNumbers = Integer.toString(number).toCharArray();
-            int result = processNumber(charNumbers);
-            while(result > 9) {
-                result = processNumber(Integer.toString(result).toCharArray());
-            }
-            return result;
+        return number > -1 ? getSum(number) : 0;
+    }
+
+    private int getSum(int number) {
+        int sum = processNumber(toCharArray(number));
+        while (sum > 9) {
+            sum = processNumber(toCharArray(sum));
         }
-        return 0;
+        return sum;
+    }
+
+    private char[] toCharArray(int number) {
+        return Integer.toString(number).toCharArray();
     }
 
     private int processNumber(char[] charNumbers) {
         int adder = 0;
-        for (int i = charNumbers.length-1; i >= 0; i--) {
+        for (int i = charNumbers.length - 1; i >= 0; i--) {
             adder += Character.getNumericValue(charNumbers[i]);
         }
         return adder;
