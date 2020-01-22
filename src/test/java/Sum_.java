@@ -25,4 +25,9 @@ public class Sum_ {
         assertThat(sum.of(16)).isEqualTo(7);
     }
 
+    @Test
+    public void given_942_should_return_() {
+        assertThat(sum.of(942)).isEqualTo(6);
+    }
+
 }
