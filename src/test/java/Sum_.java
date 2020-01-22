@@ -11,8 +11,13 @@ public class Sum_ {
     }
 
     @Test
-    public void given_1_should_return_1() {
+    public void given_negative_number_should_return_0() {
         assertThat(sum.of(-1)).isEqualTo(0);
+    }
+
+    @Test
+    public void given_5_should_return_5() {
+        assertThat(sum.of(5)).isEqualTo(5);
     }
 
 }
